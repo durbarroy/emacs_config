@@ -70,9 +70,5 @@
   (setq slime-contribs '(slime-fancy))
 #+END_SRC
 
-* New theme (nimbus-theme)
-#+BEGIN_SRC emacs-lisp
-  (use-package nimbus-theme
-    :ensure t)
-#+END_SRC
+
 
