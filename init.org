@@ -1,8 +1,6 @@
 #+PROPERTY: header-args :tangle yes :comments yes :results silent
 
-
 * TODO Figlet 
-
 * TODO Make source code block default to emacs-lisp
 
 * Package Manager (Use Package) and setting archives
@@ -25,6 +23,11 @@
 #+BEGIN_SRC emacs-lisp
   (setq use-package-always-ensure t)
 #+END_SRC
+
+* Use-package always ensure t
+  #+BEGIN_SRC emacs-lisp
+    (setq use-package-always-ensure t)
+  #+END_SRC
 
 * Ui Tweeks: Manage menu bar, tool bar and scroll bar
 #+BEGIN_SRC emacs-lisp
@@ -65,10 +68,34 @@
 
 ** slime config
 #+BEGIN_SRC emacs-lisp
-  (load (expand-file-name "~/quicklisp/slime-helper.el"))
+  (load (expand-file-name "/home/durbar/quicklisp/slime-helper.el"))
   (setq inferior-lisp-program "/usr/bin/sbcl")
   (setq slime-contribs '(slime-fancy))
 #+END_SRC
 
+* Spelling/Linting
+#+BEGIN_SRC emacs-lisp
+  (use-package flyspell
+    :ensure t
+    :hook (
+	   (prog-mode . flyspell-prog-mode)
+	   (text-mode . flyspell-mode))
+    )
+#+END_SRC
 
+* Flycheck
+#+BEGIN_SRC emacs-lisp
+  (use-package flycheck
+      :ensure t
+      :init
+      (global-flycheck-mode t))
+#+END_SRC
+
+
+* Geiser
+#+BEGIN_SRC emacs-lisp
+  (use-package geiser
+    :ensure t)
+  (setq geiser-active-implementations '(mit))
+#+END_SRC
 
